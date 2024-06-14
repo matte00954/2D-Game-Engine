@@ -1,0 +1,44 @@
+Detta dokument är extra information om projektet, jag har försökt förklara hur saker fungerar via kommentarer i koden men jag lägger till detta ifall det inte är tydligt.
+
+Källor som används i projektet:
+https://www.youtube.com/watch?v=QQzAHcojEKg&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=2
+https://lazyfoo.net/tutorials/SDL/
+https://austinmorlan.com/posts/entity_component_system/
+
+ECS implementation är inspirerad på youtube serien som är länkad ovan
+
+Olika spel kan skapas genom att skriva kod i GameLoop.cpp
+spel objekt är definerade från rad 73-81
+
+Man kan ändra i GameSettings.h ifall man vill ändra storleken på fönstret, FPS och 
+Man kan ändra FPS, storleken på fönstret via GameSettings.h.
+Man kan ändra till fullscreen genom att sätta IS_FULLSCREEN till true
+Fiende AI kan skapas med att lägga till EnemyBehavior på en Entity objekt
+
+Alla spelobjekt är ett Entity objekt.
+Man kan lägga till Components via addComponent funktionen
+man kan hämta Component via getComponent funktionen för att sedan utföra funktioner i subklassen
+
+EntityComponentSystem.h har 3 klasser
+Component
+Entity
+Manager
+
+Component är alla sub-klasser som ger egenskaper till objekt i spelet (Transform Collider, Sprite, EnemyBehavior, KeyboardController ärver från denna klass)
+Det är enkelt att lägga till fler komponenter, genom att skapa fler objekt som ärver av Component klassen
+
+Entity är alla spelobjekt, detta är typ vad som "sprite" skulle ha enligt vad som står på ilearn,
+men jag ville lära mig av ECS för att lära mig mer om spelprogrammering eftersom att går det programmet.
+ECS är en av de viktigaste/vanligaste patterns som används, t.ex. i Unity
+
+Transform hanterar rörelse
+
+Collider hanterar kollision lådor
+
+Sprite hanterar grafik
+
+EnemyBehavior hanterar fiende AI
+
+Vector2D är en vector2 pattern, hanterar velocity, position och liknande
+
+TextureHandler hanterar laddning av texturer på, static klass
